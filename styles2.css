@@ -1,0 +1,286 @@
+/* Reset bàsic per eliminar marges i espais per defecte */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.site-header {
+    position: relative;
+    z-index: 20;  /* Per sobre de l'overlay */
+    background: rgb(0, 0, 0); /* Fons semitransparent */
+    padding: 20px;
+    color: white;
+    text-align: center;
+}
+/* Estils generals per al cos de la pàgina */
+body {
+    font-family: Arial, sans-serif;  
+    background-color: black;
+    height: 100vh; /* Fes que el body ocupi tota l'alçada de la pantalla */  
+    color: #333;
+    height: 100vh;
+    display: flex;
+    padding: 20px;
+    position: relative;
+    cursor: none;  /* Amaga el cursor del sistema */
+}
+
+/* Carregar la font personalitzada amb @font-face */
+@font-face {
+    font-family: 'Arcane';  
+    src: url('assets/fonts/Arcane\ Nine.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Bebas';  /* Nom per identificar la font */
+    src: url('assets/fonts/BebasNeue-Regular.otf') format('truetype');  /* Ruta a la font */
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Gimbal';  /* Nom per identificar la font */
+    src: url('assets/fonts/Gimbal\ Extended\ Regular.otf') format('truetype');  /* Ruta a la font */
+    font-weight: normal;
+    font-style: normal;
+    
+}
+@font-face {
+    font-family: 'Minimal';  /* Nom per identificar la font */
+    src: url('assets/fonts/minimal.otf') format('truetype');  /* Ruta a la font */
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Roboto';  /* Nom per identificar la font */
+    src: url('assets/fonts/Roboto-Thin.ttf') format('truetype');  /* Ruta a la font */
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Louis';  /* Nom per identificar la font */
+    src: url('assets/fonts/Louis\ George\ Cafe.ttf') format('truetype');  /* Ruta a la font */
+    font-weight: normal;
+    font-style: normal;
+}
+/* Aplicar la font al logo */
+.logo {
+    font-family: 'Gimbal', sans-serif;
+    font-size: 98px;
+    font-weight: bold;
+    color: #ffffff;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.botoidioma{
+    font-family: 'Minimal', sans-serif;
+    color:#ffffff;
+    background-color: transparent;
+    padding: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+    z-index: 10;
+
+}
+
+/* Animació de fade-in per al títol */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;  
+    }
+    100% {
+        opacity: 1;  
+    }
+}
+
+/* Fons negre */
+.black-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(assets/images/archive/getimg_ai_img-5bBbmHH2rIbybqS1YijgO.jpeg);
+    opacity: 0.5;
+    background-size: cover; /* Ajusta la imatge per cobrir tota la pantalla */
+    background-position: center; /* Centra la imatge */
+    background-repeat: no-repeat; /* Evita que es repeteixi en mosaic */
+    z-index: 8;
+    pointer-events: none;  /* Evita que el fons negre interaccioni amb el cursor */
+    transition: clip-path 0.2s ease;  /* Transició més suau */
+    opacity: 1;  /* El fons negre serà completament visible */
+}
+
+/* Estils per al menú (en tercer pla) */
+.menu {
+    font-family: 'Louis', sans-serif;
+    font-size: 13px;
+    position: absolute;
+    top: 0;
+    right: 100px;
+    padding: 10px;
+    display: flex;
+    opacity: 0;
+    animation: fadeInMenu 2s ease-out 1s forwards;
+    z-index: 10;
+}
+
+@keyframes fadeInMenu {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: right;
+}
+
+.menu ul li {
+    margin: 15px 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecte hover per als enllaços del menú */
+.menu ul li a:hover {
+    color: #ffffff; 
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* Estils per al menú */
+nav ul {
+    list-style-type: none; /* Elimina les balles de la llista */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Alinea els elements horitzontalment */
+    justify-content: center; /* Centra els elements en horitzontal */
+}
+
+nav li {
+    margin: 0 20px; /* Espai entre els elements del menú */
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    content: "·";
+    background-color: transparent;
+}
+
+footer {
+    font-family: "Roboto";
+    font-size: 12px;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Cursor personalitzat (diafragma) */
+#cursor {
+    width: 220px;
+    height: 220px;
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    transform: translate(-48%, -46%);
+    background-image: url('assets/images/cursor-diafragma.png');  /* Ruta de la teva imatge */
+    background-size: cover;
+    background-position: center;
+    z-index: 9;
+    mix-blend-mode: normal;
+    opacity: 1;
+}
+
+/* Responsivitat per a dispositius més petits */
+@media (max-width: 768px) {
+    #cursor {
+        width: 100px;
+        height: 100px;
+    }
+
+    .logo {
+        font-size: 60px;
+    }
+
+    .menu ul li a {
+        font-size: 18px;
+    }
+}
+/* Slider container */
+.slider-container {
+    width: 100%;
+    overflow: hidden; /* Amaga el desplaçament */
+    position: relative;
+}
+
+/* Primer Slider a la part superior */
+.top-slider {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+/* Segon Slider a la part inferior */
+.bottom-slider {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Slider */
+.slider {
+    display: flex;
+    animation: slide 10s linear infinite; /* Animació per desplaçar les imatges */
+}
+
+.slider img {
+    width: 300px; /* Amplada de cada imatge */
+    height: 200px; /* Altura de cada imatge */
+}
+
+/* Animació per desplaçar les imatges horitzontalment */
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%); /* Es desplaça totalment a l'esquerra */
+    }
+}
+
+/* Segon Slider amb velocitat diferent */
+.bottom-slider .slider {
+    animation: slide 15s linear infinite;
+}
